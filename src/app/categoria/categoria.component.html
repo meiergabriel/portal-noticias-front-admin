@@ -1,0 +1,31 @@
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Lista de Categorias</h3>
+            <a routerLink="novo" class="btn btn-secundary left">Nova categoria</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-striped table-bordered align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col" class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let categoria of categoria$; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ categoria.nome }}</td>
+                        <td>{{ categoria.descricao }}</td> 
+                        <td class="text-center">
+                            <a (click)="editar(categoria.id)"  class="btn btn-primary">Editar</a>&nbsp;
+                            <a (click)="remover(categoria.id)" class="btn btn-danger">Excluir</a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>  
+    </div>
+</div>
